@@ -1,12 +1,14 @@
 import React,{useState} from "react";
 import OddEvenResult from "./OddEventResult";
 
-const Counter = ({initialValue}) => { // props의 initialValue 값 가져옴
-
+const Counter = ({initialValue}) => { // props의 initialValue 값 가져옴, 
+                                      // 부모 Component의 속성 전달 값에 현재 initialValue가 없지만, defaultProps를 통해 지정.
+                                      // props를 다 들고 오면, 부모 컴포넌트에 들고온 a=1 , b:2 등등 부터, ...counterProps로 연결한 모든 걸 들고옴
+                                      // console.log(props); : {a:1 , b:2 , c:3 , ... h:9 까지 들고옴} 
     // 상태 - state ,
-    // 부모 컴포넌트에서 자식컴포넌트에 어떤 값을 전달 시  - props! 
+    // ★★★★★ "부모" 컴포넌트에서 -> "자식" 컴포넌트에 어떤 값을 전달 시  - props 
     // props는 매개변수를 통해 받아 사용 가능, ★ 단 객체 안에 담김 비구조화 할당을 통해서도 가져올수 있음
-    // 점(.) 표기법으로도 사용 가능    
+    // 점(.) 표기법으로도 사용 가능 -> 속성 값을 바로 가져오는 경우도 있으나, ex) props.a    
 
     const [count,setCount] = useState(initialValue);
 
